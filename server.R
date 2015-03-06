@@ -30,7 +30,9 @@ shinyServer(function(input, output) {
   )
   
   output$negs <- renderText({
-    if (is.null(input$h0file) | is.null(input$h1file)) return(NULL)
+    if (is.null(input$h0file) | is.null(input$h1file)) {
+      return('A table containing the model comparison will be displayed here, once you have selected the Mplus-Output files.')
+    }
     
     if ('chi' %in% input$stats) {
       tabs <- tabFilter()
