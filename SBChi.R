@@ -53,11 +53,11 @@ SBchi <- function(model0,model1) {
   L1 <- as.numeric(fit1[grep('Loglikelihood',fit1[,1])+2,2])
 
   if (sum(grepl('Scaling Corr',fit0[,1]))>0) {
-    c0 <- as.numeric(fit0[grep('Scaling Corr',fit0[,1]),2]) }
+    c0 <- as.numeric(fit0[grep('Scaling Corr',fit0[,1]),2])[1] }
   else c0 <- 1
 
   if (sum(grepl('Scaling Corr',fit0[,1]))>0) {
-    c1 <- as.numeric(fit1[grep('Scaling Corr',fit1[,1]),2]) }
+    c1 <- as.numeric(fit1[grep('Scaling Corr',fit1[,1]),2])[1] }
   else c1 <- 1
 
   results <- as.data.frame(matrix(NA,2,13))
