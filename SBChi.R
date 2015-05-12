@@ -15,7 +15,7 @@ SBchi <- function(model0,model1) {
   
   # accounting for differences in Mplus versions
   if (sum(grepl('TESTS OF MODEL FIT',mplus0))!=0) {
-    startfit0 <- grep('TESTS OF MODEL FIT',mplus0[,1])[1]
+    startfit0 <- grep('TESTS OF MODEL FIT',mplus0)[1]
     }
   
   if (sum(grepl('MODEL FIT INFORMATION',mplus0))!=0) {
