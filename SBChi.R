@@ -86,20 +86,20 @@ SBchi <- function(model0,model1) {
   TLI1 <- as.numeric(fit1[grep('TLI',fit1[,1]),2][2])
   if (length(c(TLI0,TLI1))>0) results$TLI <- c(TLI0,TLI1)
   
-  AIC0 <- as.numeric(fit0[grep('Information Criteria',fit0[,1])+2,2])
-  AIC1 <- as.numeric(fit1[grep('Information Criteria',fit1[,1])+2,2])
+  AIC0 <- as.numeric(fit0[grep('Akaike \\(AIC\\)',fit0[,1]),2])
+  AIC1 <- as.numeric(fit1[grep('Akaike \\(AIC\\)',fit1[,1]),2])
   if (length(c(AIC0,AIC1))>0) results$AIC <- c(AIC0,AIC1)
   
-  BIC0 <- as.numeric(fit0[grep('Information Criteria',fit0[,1])+3,2])
-  BIC1 <- as.numeric(fit1[grep('Information Criteria',fit1[,1])+3,2])
+  BIC0 <- as.numeric(fit0[grep('Bayesian \\(BIC\\)',fit0[,1]),2])
+  BIC1 <- as.numeric(fit1[grep('Bayesian \\(BIC\\)',fit1[,1]),2])
   if (length(c(BIC0,BIC1))>0) results$BIC <- c(BIC0,BIC1)
   
-  aBIC0 <- as.numeric(fit0[grep('Information Criteria',fit0[,1])+4,2])
-  aBIC1 <- as.numeric(fit1[grep('Information Criteria',fit1[,1])+4,2])
+  aBIC0 <- as.numeric(fit0[grep('Sample-Size Adjusted BIC',fit0[,1]),2])
+  aBIC1 <- as.numeric(fit1[grep('Sample-Size Adjusted BIC',fit1[,1]),2])
   if (length(c(aBIC0,aBIC1))>0) results$aBIC <- c(aBIC0,aBIC1)
   
-  chi0 <- as.numeric(fit0[grep('Chi-Square Test',fit0[,1])+2,2][1])
-  chi1 <- as.numeric(fit1[grep('Chi-Square Test',fit1[,1])+2,2][1])
+  chi0 <- as.numeric(gsub('\\*','',fit0[grep('Chi-Square Test',fit0[,1])+2,2][1]))
+  chi1 <- as.numeric(gsub('\\*','',fit1[grep('Chi-Square Test',fit1[,1])+2,2][1]))
   if (length(c(chi0,chi1))>0) results$ChiSquare <- c(chi0,chi1)
   
   df0 <- as.numeric(fit0[grep('Chi-Square Test',fit0[,1])+3,2][1])
